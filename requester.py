@@ -6,3 +6,4 @@ ip = requests.get(url).text.strip('\n')
 
 print ip
 print "Hello"
+print "World"
