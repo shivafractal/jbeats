@@ -13,7 +13,7 @@ settings.configure(
 
 
 def index(request):
-    return HttpResponse('<h1>A minimal fucking Django response!</h1>')
+    return HttpResponse('<h1>A minimal Django response. Yayyyyy!!!>')
 
 urlpatterns = [
     url(r'^$', index),
