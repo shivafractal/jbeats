@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minimal
+  labels:
+    app: minimal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: minimal
+  template:
+    metadata:
+      name: minimal
+      labels:
+        app: minimal
+    spec:
+      containers:
+      - image: gcr.io/trialrun-211414/jbeats:1a
+        name: mincon
+        command: ["python"]
+        args: ["/app/minimal.py", "runserver", "0.0.0.0:8000"]
+        ports:
+        - containerPort: 8000
+        imagePullPolicy: IfNotPresent
+---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: minserv
+#spec:
+#  selector:
+#    app: minimal
+#  ports:
+#  - port: 8000
+#    targetPort: 8000
+#  type: LoadBalancer
+#  loadBalancerSourceRanges:
+#  - 115.113.175.114/32
+
